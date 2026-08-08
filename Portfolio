@@ -1,156 +1,384 @@
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Portfolio</title>
 
-  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:Times New Roman, Ariel;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    body{
-      background:#000;
-      color:#fff;
-      line-height:1.1;
-    
+    <title>My Portfolio</title>
 
-    header{
-      background:#111;
-      padding:10px 15%;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      border-bottom:3px solid #333;
-    }
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-    header h1{
-      color:#fff;
-    }
-     nav a{
-      color:#ddd;
-      text-decoration:none;
-      margin-left:20px;
-      transition:.3s;
+    <style>
 
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Times New Roman", Arial, sans-serif;
+        }
 
-    .input{
-      text-align:center;
-      padding:100px 20px;
-    }
+        html {
+            scroll-behavior: smooth;
+        }
 
-    .input h2{
-      font-size:40px;
-      margin-bottom: 0; 
-    }
+        body {
+            background: #000;
+            color: #fff;
+            line-height: 1.5;
+        }
 
-    .input span{
-      color:#fff;
-    }
+        header {
+            background: #111;
+            padding: 15px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid #333;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
 
-    .input space{
-      margin:10px auto;
-      max-width:600px;
-      color:#fff;
+        header h1 {
+            color: #fff;
+        }
 
-    }
-     #about h2 {
-      margin-bottom: 0;
-    }
+        nav a {
+            color: #ddd;
+            text-decoration: none;
+            margin-left: 20px;
+            transition: 0.3s;
+        }
 
-     #Projects h2 {
-      margin-bottom: 0;
-    }
+        nav a:hover {
+            color: #fff;
+        }
 
-     #Contacts h2 {
-      margin-bottom: 0;
-    }
+        .input {
+            text-align: center;
+            padding: 120px 20px;
+        }
 
-    section{
-      padding:70px 10%;
-    }
+        .input h2 {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
 
-    h2{
-      text-align:center;
-      margin-bottom:30px;
-      color:#fff;
-    }
+        .input p {
+            color: #aaa;
+        }
 
+        section {
+            padding: 80px 10%;
+        }
 
-  </style>
+        h2 {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .about-card {
+            max-width: 750px;
+            margin: auto;
+            background: #111;
+            border: 1px solid #333;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .about-card p {
+            color: #ddd;
+        }
+
+        .project-skill-content {
+            display: flex;
+            justify-content: space-between;
+            gap: 80px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .project-skill-content > div {
+            width: 45%;
+        }
+
+        .skill-card {
+            background: #111;
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 18px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-8px);
+            background: #1a1a1a;
+            border-color: #666;
+            box-shadow: 0 10px 25px rgba(255, 255, 255, 0.15);
+        }
+
+        .skill-logo {
+            font-size: 42px;
+            width: 60px;
+            margin-right: 15px;
+            transition: 0.3s;
+        }
+
+        .skill-card:hover .skill-logo {
+            transform: scale(1.15);
+        }
+
+        .html {
+            color: #e34c26;
+        }
+
+        .css {
+            color: #1572b6;
+        }
+
+        .java {
+            color: #f89820;
+        }
+
+        .python {
+            color: #3776ab;
+        }
+
+        .csharp {
+            color: #68217a;
+        }
+
+        .project-card {
+            background: #111;
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 15px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            background: #1a1a1a;
+            border-color: #666;
+            box-shadow: 0 10px 25px rgba(255, 255, 255, 0.15);
+        }
+
+        .project-card h3 {
+            margin-bottom: 8px;
+        }
+
+        .project-card p {
+            color: #aaa;
+        }
+
+        .contact-card {
+            max-width: 600px;
+            margin: auto;
+            background: #111;
+            border: 1px solid #333;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .contact-card p {
+            margin: 15px 0;
+            color: #ddd;
+        }
+
+        .contact-card i {
+            margin-right: 8px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: #111;
+            border-top: 3px solid #333;
+            color: #aaa;
+        }
+
+        @media (max-width: 700px) {
+
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 0 8px;
+            }
+
+            .input {
+                padding: 80px 20px;
+            }
+
+            .input h2 {
+                font-size: 30px;
+            }
+
+            .project-skill-content {
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .project-skill-content > div {
+                width: 100%;
+            }
+
+        }
+
+    </style>
+
 </head>
 
 <body>
 
 <header>
-  <h1>MyPortfolio</h1>
 
-  <nav>
-    <a href="#about">About</a>
-    <a href="#about">Projects</a>
-    <a href="#about">Contacts</a>
-  </nav>
+    <h1>MyPortfolio</h1>
+
+    <nav>
+        <a href="#about">About</a>
+        <a href="#Projects">Projects</a>
+        <a href="#Contacts">Contacts</a>
+    </nav>
+
 </header>
-
 
 <section class="input">
 
-  <h2>Hello, I'm <span>Bench Bacquian</span></h2>
+    <h2>
+        Hello, I'm <span>Bench Bacquian</span>
+    </h2>
 
-  <p>
-    A passionate student who enjoys creating functional websites.
-  </p>
-
+    <p>
+        A passionate student who enjoys creating functional websites.
+    </p>
 
 </section>
 
-
 <section id="about">
 
-  <h2>About Me</h2>
+    <h2>About Me</h2>
 
-  <p style="text-align:center; max-width:750px; margin:auto; color:#fff;">
-    I'm currently learning HTML, Java, CSS, and hopefully Python as my next language.
-    I enjoy improving my programming skills every day.
-  </p>
+    <div class="about-card">
+
+        <p>
+            I'm currently learning HTML, Java, CSS, and hopefully
+            Python as my next language. I enjoy improving my
+            programming skills every day.
+        </p>
+
+    </div>
 
 </section>
 
 <section id="Projects">
 
-  <h2>Projects</h2>
+    <div class="project-skill-content">
 
-  <p style="text-align:center; max-width:750px; margin:auto; color:#fff;">
-       Personal Portfolio
+        <div class="skills">
 
-  <p style="text-align:center; max-width:750px; margin:auto; color:#fff;">
-       Simple Calculator
-  </p>
+            <h2>Skills</h2>
+
+            <div class="skill-card">
+                <i class="fa-brands fa-html5 skill-logo html"></i>
+                <span>HTML</span>
+            </div>
+
+            <div class="skill-card">
+                <i class="fa-brands fa-css3-alt skill-logo css"></i>
+                <span>CSS</span>
+            </div>
+
+            <div class="skill-card">
+                <i class="fa-brands fa-java skill-logo java"></i>
+                <span>Java</span>
+            </div>
+
+            <div class="skill-card">
+                <i class="fa-brands fa-python skill-logo python"></i>
+                <span>Python ( Learning )</span>
+            </div>
+
+            <div class="skill-card">
+                <i class="fa-solid fa-code skill-logo csharp"></i>
+                <span>C# ( Learning )</span>
+            </div>
+
+        </div>
+
+        <div class="projects">
+
+            <h2>Projects</h2>
+
+            <div class="project-card">
+
+                <h3>Personal Portfolio</h3>
+
+                <p>
+                    A simple personal portfolio created
+                    using HTML and CSS.
+                </p>
+
+            </div>
+
+            <div class="project-card">
+
+                <h3>Simple Calculator</h3>
+
+                <p>
+                    A basic calculator project for practicing
+                    programming.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </section>
 
 <section id="Contacts">
 
-  <h2>Contacts</h2>
+    <h2>Contacts</h2>
 
-  <p style="text-align:center; max-width:750px; margin:auto; color:#fff;">
-       📧Email: Bacquianbench58@gmail.com
+    <div class="contact-card">
 
-  <p style="text-align:center; max-width:750px; margin:auto; color:#fff;">
-       📞Phone Number: 09944786308
-  </p>
+        <p>
+            <i class="fa-solid fa-envelope"></i>
+            Email: Bacquianbench58@gmail.com
+        </p>
+
+        <p>
+            <i class="fa-solid fa-phone"></i>
+            Phone Number: 09944786308
+        </p>
+
+    </div>
 
 </section>
 
+<footer>
 
-<footer style="text-align:center;margin:auto;">
-BENCH GWAPO 
+    BENCH GWAPO
+
 </footer>
 
-
 </body>
+
 </html>
+```
