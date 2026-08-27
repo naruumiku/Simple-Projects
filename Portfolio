@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -110,8 +111,7 @@
 
             display: inline-block;
 
-            transition:
-                .3s ease;
+            transition: .3s ease;
         }
 
         nav a:hover {
@@ -174,8 +174,7 @@
 
             display: inline-block;
 
-            transition:
-                .3s ease;
+            transition: .3s ease;
         }
 
         .input h2 span:hover {
@@ -189,6 +188,101 @@
             color: #c0c0c0;
 
             text-align: left;
+        }
+
+
+        /* =========================
+           CLICKABLE FACEBOOK CARD
+        ========================= */
+
+        .facebook-card {
+            margin-top: 12px;
+
+            padding: 9px 12px;
+
+            width: 100%;
+            max-width: 280px;
+
+            display: flex;
+            align-items: center;
+
+            gap: 10px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #111111,
+                    #303030,
+                    #151515
+                );
+
+            border: 1px solid #555555;
+
+            border-radius: 8px;
+
+            box-shadow:
+                0 3px 12px rgba(0, 0, 0, .6);
+
+            text-decoration: none;
+
+            color: inherit;
+
+            cursor: pointer;
+
+            transition: .3s ease;
+        }
+
+        .facebook-card:hover {
+            transform:
+                translateY(-4px)
+                scale(1.02);
+
+            border-color: #888888;
+
+            box-shadow:
+                0 8px 20px rgba(0, 0, 0, .9);
+        }
+
+        .facebook-icon {
+            font-size: 27px;
+
+            color: #cccccc;
+
+            transition: .3s ease;
+        }
+
+        .facebook-card:hover .facebook-icon {
+            transform:
+                scale(1.15)
+                rotate(5deg);
+
+            color: #ffffff;
+        }
+
+        .facebook-card h3 {
+            font-size: 16px;
+
+            color: #eeeeee;
+
+            margin-bottom: 1px;
+        }
+
+        .facebook-card p {
+            font-size: 11px;
+
+            color: #aaaaaa;
+
+            margin-bottom: 3px;
+        }
+
+        .facebook-visit {
+            font-size: 11px;
+
+            color: #ffffff;
+        }
+
+        .facebook-card:hover .facebook-visit {
+            text-decoration: underline;
         }
 
 
@@ -225,8 +319,7 @@
                 0 0 35px rgba(0, 0, 0, .9),
                 inset 0 0 25px rgba(255, 255, 255, .05);
 
-            transition:
-                .4s ease;
+            transition: .4s ease;
         }
 
         .profile-box:hover {
@@ -411,8 +504,7 @@
             box-shadow:
                 0 5px 20px rgba(0, 0, 0, .6);
 
-            transition:
-                .3s ease;
+            transition: .3s ease;
         }
 
         .skill-card:hover {
@@ -447,8 +539,7 @@
 
             margin-right: 15px;
 
-            transition:
-                .3s ease;
+            transition: .3s ease;
         }
 
         .skill-card:hover .skill-logo {
@@ -506,8 +597,7 @@
             box-shadow:
                 0 5px 20px rgba(0, 0, 0, .6);
 
-            transition:
-                .3s ease;
+            transition: .3s ease;
         }
 
         .project-card:hover {
@@ -535,8 +625,7 @@
 
             color: #eeeeee;
 
-            transition:
-                .3s ease;
+            transition: .3s ease;
         }
 
         .project-card:hover h3 {
@@ -606,8 +695,7 @@
 
             color: #c0c0c0;
 
-            transition:
-                .3s ease;
+            transition: .3s ease;
         }
 
         .contact-card p:hover {
@@ -622,8 +710,7 @@
 
             color: #aaaaaa;
 
-            transition:
-                .3s ease;
+            transition: .3s ease;
         }
 
         .contact-card p:hover i {
@@ -707,6 +794,11 @@
                 text-align: center;
             }
 
+            .facebook-card {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
             .profile-box {
                 width: 230px;
 
@@ -745,7 +837,7 @@
 
         <a href="#about">About</a>
 
-        <a href="#Projects">Projects</a>
+        <a href="#Projects">Projects / Skills</a>
 
         <a href="#Contacts">Contacts</a>
 
@@ -770,15 +862,44 @@
             </h2>
 
             <p>
-                A passionate student who enjoys creating functional websites. I love learning new technologies and improving my skills through hands-on projects. My goal is to create websites that are both visually appealing and easy to use.
+                A passionate student who enjoys creating functional websites.
+                I love learning new technologies and improving my skills
+                through hands-on projects. My goal is to create websites
+                that are both visually appealing and easy to use.
             </p>
+
+
+            <!-- =========================
+                 CLICKABLE FACEBOOK CARD
+            ========================= -->
+
+            <a href="https://www.facebook.com/bench.bacquian"
+               target="_blank"
+               class="facebook-card">
+
+                <i class="fa-brands fa-facebook facebook-icon"></i>
+
+                <div>
+
+                    <h3>Facebook</h3>
+                    <span class="facebook-visit">
+            
+                    </span>
+
+                    <p>
+                        Feel free to visit my Facebook profile.
+                    </p>
+
+
+
+                </div>
+
+            </a>
 
         </div>
 
 
         <div class="profile-box">
-
-            <!-- YOUR IMAGE PATH - UNCHANGED -->
 
             <img src="C:\Users\PC-2\Documents\Img2\Benz.jpg"
                  alt="Bench Bacquian"
@@ -826,7 +947,6 @@
         <div class="skills">
 
             <h2>Skills</h2>
-
 
             <div class="skill-card">
 
