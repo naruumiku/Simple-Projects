@@ -1,827 +1,413 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>My Portfolio</title>
-
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-
-    <style>
-
-        /* =========================
-           GENERAL
-        ========================= */
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: "Times New Roman", Arial, sans-serif;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background:
-                linear-gradient(
-                    120deg,
-                    #000000 0%,
-                    #101010 15%,
-                    #202020 30%,
-                    #3a3a3a 45%,
-                    #4a4a4a 50%,
-                    #343434 58%,
-                    #1b1b1b 75%,
-                    #080808 90%,
-                    #000000 100%
-                );
-
-            background-attachment: fixed;
-
-            color: #eeeeee;
-            line-height: 1.5;
-        }
-
-
-        /* =========================
-           HEADER
-        ========================= */
-
-        header {
-            background:
-                linear-gradient(
-                    100deg,
-                    #000000,
-                    #151515,
-                    #303030,
-                    #171717,
-                    #000000
-                );
-
-            padding: 15px 8%;
-
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-
-            border-bottom: 2px solid #555555;
-
-            position: sticky;
-            top: 0;
-            z-index: 100;
-
-            box-shadow:
-                0 5px 25px rgba(0, 0, 0, .8);
-        }
-
-        header h1 {
-            color: #ffffff;
-
-            transition:
-                transform .3s ease,
-                text-shadow .3s ease;
-        }
-
-        header h1:hover {
-            transform: scale(1.05);
-
-            text-shadow:
-                0 0 15px rgba(255, 255, 255, .4);
-        }
-
-
-        /* =========================
-           NAVIGATION
-        ========================= */
-
-        nav a {
-            color: #bbbbbb;
-
-            text-decoration: none;
-
-            margin-left: 20px;
-
-            display: inline-block;
-
-            transition: .3s ease;
-        }
-
-        nav a:hover {
-            color: #ffffff;
-
-            transform:
-                translateY(-3px)
-                scale(1.05);
-
-            text-shadow:
-                0 0 10px rgba(255, 255, 255, .5);
-        }
-
-
-        /* =========================
-           HOME
-        ========================= */
-
-        .input {
-            min-height: 500px;
-
-            padding: 80px 8%;
-
-            display: flex;
-            align-items: center;
-
-            background: transparent;
-        }
-
-        .input-content {
-            width: 100%;
-
-            display: grid;
-
-            grid-template-columns: 1fr 300px;
-
-            align-items: center;
-
-            gap: 100px;
-        }
-
-        .input-text {
-            text-align: left;
-
-            padding-left: 10%;
-        }
-
-        .input h2 {
-            font-size: 40px;
-
-            margin-bottom: 10px;
-
-            text-align: left;
-
-            color: #eeeeee;
-        }
-
-        .input h2 span {
-            color: #ffffff;
-
-            display: inline-block;
-
-            transition: .3s ease;
-        }
-
-        .input h2 span:hover {
-            transform: scale(1.05);
-
-            text-shadow:
-                0 0 15px rgba(255, 255, 255, .5);
-        }
-
-        .input p {
-            color: #c0c0c0;
-
-            text-align: left;
-        }
-
-
-        /* =========================
-           CLICKABLE FACEBOOK CARD
-        ========================= */
-
-        .facebook-card {
-            margin-top: 12px;
-
-            padding: 9px 12px;
-
-            width: 100%;
-            max-width: 280px;
-
-            display: flex;
-            align-items: center;
-
-            gap: 10px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #111111,
-                    #303030,
-                    #151515
-                );
-
-            border: 1px solid #555555;
-
-            border-radius: 8px;
-
-            box-shadow:
-                0 3px 12px rgba(0, 0, 0, .6);
-
-            text-decoration: none;
-
-            color: inherit;
-
-            cursor: pointer;
-
-            transition: .3s ease;
-        }
-
-        .facebook-card:hover {
-            transform:
-                translateY(-4px)
-                scale(1.02);
-
-            border-color: #888888;
-
-            box-shadow:
-                0 8px 20px rgba(0, 0, 0, .9);
-        }
-
-        .facebook-icon {
-            font-size: 27px;
-
-            color: #cccccc;
-
-            transition: .3s ease;
-        }
-
-        .facebook-card:hover .facebook-icon {
-            transform:
-                scale(1.15)
-                rotate(5deg);
-
-            color: #ffffff;
-        }
-
-        .facebook-card h3 {
-            font-size: 16px;
-
-            color: #eeeeee;
-
-            margin-bottom: 1px;
-        }
-
-        .facebook-card p {
-            font-size: 11px;
-
-            color: #aaaaaa;
-
-            margin-bottom: 3px;
-        }
-
-        .facebook-visit {
-            font-size: 11px;
-
-            color: #ffffff;
-        }
-
-        .facebook-card:hover .facebook-visit {
-            text-decoration: underline;
-        }
-
-
-        /* =========================
-           PROFILE BOX
-        ========================= */
-
-        .profile-box {
-            width: 300px;
-            height: 300px;
-
-            display: flex;
-
-            align-items: center;
-            justify-content: center;
-
-            justify-self: end;
-
-            border-radius: 20px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #050505,
-                    #252525,
-                    #444444,
-                    #202020,
-                    #050505
-                );
-
-            border: 1px solid #555555;
-
-            box-shadow:
-                0 0 35px rgba(0, 0, 0, .9),
-                inset 0 0 25px rgba(255, 255, 255, .05);
-
-            transition: .4s ease;
-        }
-
-        .profile-box:hover {
-            transform:
-                translateY(-5px);
-
-            box-shadow:
-                0 15px 45px rgba(0, 0, 0, .9),
-                0 0 30px rgba(255, 255, 255, .1);
-        }
-
-
-        /* =========================
-           PROFILE IMAGE
-        ========================= */
-
-        .profile-image {
-            width: 230px;
-            height: 260px;
-
-            object-fit: cover;
-
-            border-radius: 8px;
-
-            border: 3px solid #555555;
-
-            box-shadow:
-                0 5px 20px rgba(0, 0, 0, .8);
-
-            transition:
-                transform .4s ease,
-                box-shadow .4s ease,
-                border-color .4s ease;
-        }
-
-        .profile-image:hover {
-            transform:
-                scale(1.08)
-                translateY(-8px)
-                rotate(2deg);
-
-            border-color: #999999;
-
-            box-shadow:
-                0 15px 35px rgba(0, 0, 0, .9),
-                0 0 25px rgba(255, 255, 255, .15);
-        }
-
-
-        /* =========================
-           SECTIONS
-        ========================= */
-
-        section {
-            padding: 80px 8%;
-
-            background: transparent;
-        }
-
-        h2 {
-            text-align: center;
-
-            margin-bottom: 25px;
-
-            color: #eeeeee;
-        }
-
-
-        /* =========================
-           ABOUT CARD
-        ========================= */
-
-        .about-card {
-            width: 100%;
-
-            max-width: 750px;
-
-            margin: auto;
-
-            padding: 30px;
-
-            text-align: center;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    rgba(20, 20, 20, .95),
-                    rgba(55, 55, 55, .85),
-                    rgba(15, 15, 15, .95)
-                );
-
-            border: 1px solid #555555;
-
-            border-radius: 15px;
-
-            box-shadow:
-                0 8px 30px rgba(0, 0, 0, .7);
-
-            transition:
-                transform .4s ease,
-                box-shadow .4s ease,
-                border-color .4s ease;
-        }
-
-        .about-card:hover {
-            transform:
-                translateY(-8px)
-                scale(1.02);
-
-            border-color: #888888;
-
-            box-shadow:
-                0 15px 40px rgba(0, 0, 0, .9),
-                0 0 20px rgba(255, 255, 255, .06);
-        }
-
-        .about-card p {
-            color: #c0c0c0;
-        }
-
-
-        /* =========================
-           PROJECT + SKILLS
-        ========================= */
-
-        .project-skill-content {
-            width: 100%;
-
-            display: grid;
-
-            grid-template-columns: 1fr 1fr;
-
-            gap: 100px;
-
-            align-items: start;
-        }
-
-        .skills,
-        .projects {
-            width: 100%;
-        }
-
-        .skills h2,
-        .projects h2 {
-            text-align: center;
-
-            margin-bottom: 25px;
-        }
-
-
-        /* =========================
-           SKILL CARDS
-        ========================= */
-
-        .skill-card {
-            width: 100%;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #111111,
-                    #303030,
-                    #151515
-                );
-
-            border: 1px solid #4d4d4d;
-
-            border-radius: 12px;
-
-            padding: 18px;
-
-            margin-bottom: 15px;
-
-            display: flex;
-
-            align-items: center;
-
-            cursor: pointer;
-
-            color: #cccccc;
-
-            box-shadow:
-                0 5px 20px rgba(0, 0, 0, .6);
-
-            transition: .3s ease;
-        }
-
-        .skill-card:hover {
-            transform:
-                translateY(-8px)
-                scale(1.02);
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #1c1c1c,
-                    #444444,
-                    #181818
-                );
-
-            border-color: #888888;
-
-            box-shadow:
-                0 12px 30px rgba(0, 0, 0, .9),
-                0 0 20px rgba(255, 255, 255, .07);
-        }
-
-
-        /* =========================
-           SKILL ICONS
-        ========================= */
-
-        .skill-logo {
-            font-size: 42px;
-
-            width: 60px;
-
-            margin-right: 15px;
-
-            transition: .3s ease;
-        }
-
-        .skill-card:hover .skill-logo {
-            transform:
-                scale(1.15)
-                rotate(5deg);
-        }
-
-        .html {
-            color: #e98b72;
-        }
-
-        .css {
-            color: #5b9dcc;
-        }
-
-        .java {
-            color: #e5a85b;
-        }
-
-        .python {
-            color: #5f91c5;
-        }
-
-        .csharp {
-            color: #8c78b8;
-        }
-
-
-        /* =========================
-           PROJECT CARDS
-        ========================= */
-
-        .project-card {
-            width: 100%;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #111111,
-                    #303030,
-                    #151515
-                );
-
-            border: 1px solid #4d4d4d;
-
-            border-radius: 12px;
-
-            padding: 20px;
-
-            margin-bottom: 15px;
-
-            cursor: pointer;
-
-            box-shadow:
-                0 5px 20px rgba(0, 0, 0, .6);
-
-            transition: .3s ease;
-        }
-
-        .project-card:hover {
-            transform:
-                translateY(-8px)
-                scale(1.02);
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #1c1c1c,
-                    #444444,
-                    #181818
-                );
-
-            border-color: #888888;
-
-            box-shadow:
-                0 12px 30px rgba(0, 0, 0, .9),
-                0 0 20px rgba(255, 255, 255, .07);
-        }
-
-        .project-card h3 {
-            margin-bottom: 8px;
-
-            color: #eeeeee;
-
-            transition: .3s ease;
-        }
-
-        .project-card:hover h3 {
-            transform:
-                translateX(5px);
-
-            color: #ffffff;
-
-            text-shadow:
-                0 0 10px rgba(255, 255, 255, .3);
-        }
-
-        .project-card p {
-            color: #aaaaaa;
-        }
-
-
-        /* =========================
-           CONTACT
-        ========================= */
-
-        .contact-card {
-            width: 100%;
-
-            max-width: 600px;
-
-            margin: auto;
-
-            padding: 30px;
-
-            text-align: center;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #111111,
-                    #353535,
-                    #151515
-                );
-
-            border: 1px solid #555555;
-
-            border-radius: 15px;
-
-            box-shadow:
-                0 8px 30px rgba(0, 0, 0, .7);
-
-            transition:
-                transform .4s ease,
-                box-shadow .4s ease,
-                border-color .4s ease;
-        }
-
-        .contact-card:hover {
-            transform:
-                translateY(-8px)
-                scale(1.02);
-
-            border-color: #888888;
-
-            box-shadow:
-                0 15px 40px rgba(0, 0, 0, .9);
-        }
-
-        .contact-card p {
-            margin: 15px 0;
-
-            color: #c0c0c0;
-
-            transition: .3s ease;
-        }
-
-        .contact-card p:hover {
-            transform:
-                scale(1.03);
-
-            color: #ffffff;
-        }
-
-        .contact-card i {
-            margin-right: 8px;
-
-            color: #aaaaaa;
-
-            transition: .3s ease;
-        }
-
-        .contact-card p:hover i {
-            transform:
-                scale(1.2)
-                rotate(5deg);
-
-            color: #ffffff;
-        }
-
-
-        /* =========================
-           FOOTER
-        ========================= */
-
-        footer {
-            text-align: center;
-
-            padding: 25px;
-
-            background:
-                linear-gradient(
-                    100deg,
-                    #000000,
-                    #252525,
-                    #444444,
-                    #202020,
-                    #000000
-                );
-
-            border-top: 2px solid #555555;
-
-            color: #aaaaaa;
-
-            box-shadow:
-                0 -5px 25px rgba(0, 0, 0, .7);
-        }
-
-
-        /* =========================
-           MOBILE
-        ========================= */
-
-        @media(max-width:700px) {
-
-            header {
-                flex-direction: column;
-
-                gap: 15px;
-            }
-
-            nav a {
-                margin: 0 8px;
-            }
-
-            .input {
-                min-height: 500px;
-
-                padding: 80px 10%;
-            }
-
-            .input-content {
-                grid-template-columns: 1fr;
-
-                gap: 30px;
-            }
-
-            .input-text {
-                padding-left: 0;
-
-                text-align: center;
-            }
-
-            .input h2 {
-                font-size: 30px;
-
-                text-align: center;
-            }
-
-            .input p {
-                text-align: center;
-            }
-
-            .facebook-card {
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            .profile-box {
-                width: 230px;
-
-                height: 250px;
-
-                justify-self: center;
-            }
-
-            .profile-image {
-                width: 180px;
-
-                height: 210px;
-            }
-
-            .project-skill-content {
-                grid-template-columns: 1fr;
-
-                gap: 40px;
-            }
-
-        }
-
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>My Portfolio</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<style>
+
+/* GENERAL */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Times New Roman",Arial,sans-serif
+}
+
+html{scroll-behavior:smooth}
+
+body{
+    background:linear-gradient(120deg,#000,#101010 15%,#202020 30%,#3a3a3a 45%,#4a4a4a 50%,#343434 58%,#1b1b1b 75%,#080808 90%,#000);
+    background-attachment:fixed;
+    color:#eee;
+    line-height:1.5
+}
+
+
+/* HEADER */
+
+header,footer{
+    background:linear-gradient(100deg,#000,#151515,#303030,#171717,#000);
+    border-color:#555;
+    box-shadow:0 5px 25px #000c
+}
+
+header{
+    padding:15px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:2px solid #555;
+    position:sticky;
+    top:0;
+    z-index:100
+}
+
+header h1,nav a,.input h2 span,.skill-logo,
+.facebook-card,.profile-box,.profile-image,
+.about-card,.skill-card,.project-card,
+.contact-card,.contact-card p,.contact-card i{
+    transition:.3s
+}
+
+header h1:hover{
+    transform:scale(1.05);
+    text-shadow:0 0 15px #fff6
+}
+
+
+/* NAVIGATION */
+
+nav a{
+    color:#bbb;
+    text-decoration:none;
+    margin-left:20px;
+    display:inline-block
+}
+
+nav a:hover{
+    color:#fff;
+    transform:translateY(-3px) scale(1.05);
+    text-shadow:0 0 10px #fff8
+}
+
+
+/* HOME */
+
+.input{
+    min-height:500px;
+    padding:80px 8%;
+    display:flex;
+    align-items:center
+}
+
+.input-content{
+    width:100%;
+    display:grid;
+    grid-template-columns:1fr 300px;
+    gap:100px;
+    align-items:center
+}
+
+.input-text{
+    padding-left:10%;
+    text-align:left
+}
+
+.input h2{
+    font-size:40px;
+    margin-bottom:10px
+}
+
+.input h2 span{
+    color:#fff;
+    display:inline-block
+}
+
+.input h2 span:hover{
+    transform:scale(1.05);
+    text-shadow:0 0 15px #fff8
+}
+
+.input p{color:#c0c0c0}
+
+
+/* FACEBOOK CARD */
+
+.facebook-card{
+    margin-top:12px;
+    padding:9px 12px;
+    max-width:280px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    background:linear-gradient(135deg,#111,#303030,#151515);
+    border:1px solid #555;
+    border-radius:8px;
+    box-shadow:0 3px 12px #0009;
+    text-decoration:none;
+    color:inherit
+}
+
+.facebook-card:hover{
+    transform:translateY(-4px) scale(1.02);
+    border-color:#888;
+    box-shadow:0 8px 20px #000e
+}
+
+.facebook-icon{
+    font-size:27px;
+    margin-right:5px
+}
+
+.facebook-card h3{font-size:16px}
+
+.facebook-card p,
+.facebook-visit{
+    font-size:11px
+}
+
+.facebook-card p{margin-bottom:3px}
+
+.facebook-visit{color:#fff}
+
+.facebook-card:hover .facebook-icon{
+    transform:scale(1.15) rotate(5deg);
+    color:#fff
+}
+
+.facebook-card:hover .facebook-visit{
+    text-decoration:underline
+}
+
+
+/* PROFILE */
+
+.profile-box{
+    width:300px;
+    height:300px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    justify-self:end;
+    border-radius:20px;
+    background:linear-gradient(135deg,#050505,#252525,#444,#202020,#050505);
+    border:1px solid #555;
+    box-shadow:0 0 35px #000e,inset 0 0 25px #fff1
+}
+
+.profile-box:hover{
+    transform:translateY(-5px);
+    box-shadow:0 15px 45px #000e,0 0 30px #fff2
+}
+
+.profile-image{
+    width:230px;
+    height:260px;
+    object-fit:cover;
+    border-radius:8px;
+    border:3px solid #555;
+    box-shadow:0 5px 20px #000c
+}
+
+.profile-image:hover{
+    transform:scale(1.08) translateY(-8px) rotate(2deg);
+    border-color:#999;
+    box-shadow:0 15px 35px #000e,0 0 25px #fff2
+}
+
+
+/* SECTIONS */
+
+section{padding:80px 8%}
+
+h2{
+    text-align:center;
+    margin-bottom:25px
+}
+
+
+/* CARDS */
+
+.about-card,
+.skill-card,
+.project-card,
+.contact-card{
+    background:linear-gradient(135deg,#111,#303030,#151515);
+    border:1px solid #555;
+    box-shadow:0 5px 20px #0009
+}
+
+.about-card,
+.contact-card{
+    margin:auto;
+    text-align:center;
+    border-radius:15px
+}
+
+.about-card{
+    max-width:750px;
+    padding:30px
+}
+
+.about-card p{color:#c0c0c0}
+
+.about-card:hover,
+.skill-card:hover,
+.project-card:hover,
+.contact-card:hover{
+    transform:translateY(-8px) scale(1.02);
+    border-color:#888;
+    box-shadow:0 15px 40px #000e
+}
+
+
+/* SKILLS + PROJECTS */
+
+.project-skill-content{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:100px
+}
+
+.skill-card{
+    padding:18px;
+    margin-bottom:15px;
+    display:flex;
+    align-items:center;
+    border-radius:12px;
+    cursor:pointer;
+    color:#ccc
+}
+
+.skill-card:hover,
+.project-card:hover{
+    background:linear-gradient(135deg,#1c1c1c,#444,#181818)
+}
+
+
+/* SKILLS */
+
+.skill-logo{
+    font-size:42px;
+    width:60px;
+    margin-right:15px
+}
+
+.skill-card:hover .skill-logo{
+    transform:scale(1.15) rotate(5deg)
+}
+
+.html{color:#e98b72}
+.css{color:#5b9dcc}
+.java{color:#e5a85b}
+.python{color:#5f91c5}
+.csharp{color:#8c78b8}
+
+
+/* PROJECTS */
+
+.project-card{
+    padding:20px;
+    margin-bottom:15px;
+    border-radius:12px;
+    cursor:pointer
+}
+
+.project-card h3{
+    margin-bottom:8px;
+    transition:.3s
+}
+
+.project-card:hover h3{
+    transform:translateX(5px);
+    text-shadow:0 0 10px #fff5
+}
+
+.project-card p{color:#aaa}
+
+
+/* CONTACT */
+
+.contact-card{
+    max-width:600px;
+    padding:30px
+}
+
+.contact-card p{
+    margin:15px 0;
+    color:#c0c0c0
+}
+
+.contact-card p:hover{
+    transform:scale(1.03);
+    color:#fff
+}
+
+.contact-card i{
+    margin-right:8px
+}
+
+.contact-card p:hover i{
+    transform:scale(1.2) rotate(5deg);
+    color:#fff
+}
+
+
+/* FOOTER */
+
+footer{
+    padding:25px;
+    text-align:center;
+    border-top:2px solid #555;
+    color:#aaa
+}
+
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+    header{
+        flex-direction:column;
+        gap:15px
+    }
+
+    nav a{margin:0 8px}
+
+    .input{
+        min-height:500px;
+        padding:80px 10%
+    }
+
+    .input-content,
+    .project-skill-content{
+        grid-template-columns:1fr
+    }
+
+    .input-content{gap:30px}
+
+    .project-skill-content{gap:40px}
+
+    .input-text{
+        padding-left:0;
+        text-align:center
+    }
+
+    .input h2{
+        font-size:30px;
+        text-align:center
+    }
+
+    .input p{text-align:center}
+
+    .facebook-card{
+        margin-left:auto;
+        margin-right:auto
+    }
+
+    .profile-box{
+        width:230px;
+        height:250px;
+        justify-self:center
+    }
+
+    .profile-image{
+        width:180px;
+        height:210px
+    }
+
+}
+
+</style>
 
 </head>
 
@@ -829,15 +415,17 @@
 <body>
 
 
+<!-- HEADER -->
+
 <header>
 
-    <h1> < /.Dev > </h1>
+    <h1>&lt; /.Dev &gt;</h1>
 
     <nav>
 
         <a href="#about">About</a>
 
-        <a href="#Projects">Projects / Skills</a>
+        <a href="#Projects">Projects</a>
 
         <a href="#Contacts">Contacts</a>
 
@@ -846,9 +434,7 @@
 </header>
 
 
-<!-- =========================
-     HOME
-========================= -->
+<!-- HOME -->
 
 <section class="input">
 
@@ -869,9 +455,7 @@
             </p>
 
 
-            <!-- =========================
-                 CLICKABLE FACEBOOK CARD
-            ========================= -->
+            <!-- FACEBOOK -->
 
             <a href="https://www.facebook.com/bench.bacquian"
                target="_blank"
@@ -881,16 +465,15 @@
 
                 <div>
 
-                    <h3>Facebook</h3>
-                    <span class="facebook-visit">
-            
-                    </span>
+                    <h3>My Facebook</h3>
 
                     <p>
                         Feel free to visit my Facebook profile.
                     </p>
 
-
+                    <span class="facebook-visit">
+                        Visit My Facebook
+                    </span>
 
                 </div>
 
@@ -898,6 +481,8 @@
 
         </div>
 
+
+        <!-- PROFILE IMAGE -->
 
         <div class="profile-box">
 
@@ -912,9 +497,7 @@
 </section>
 
 
-<!-- =========================
-     ABOUT
-========================= -->
+<!-- ABOUT -->
 
 <section id="about">
 
@@ -933,9 +516,7 @@
 </section>
 
 
-<!-- =========================
-     PROJECTS + SKILLS
-========================= -->
+<!-- PROJECTS + SKILLS -->
 
 <section id="Projects">
 
@@ -1001,7 +582,6 @@
 
             <h2>Projects</h2>
 
-
             <div class="project-card">
 
                 <h3>Personal Portfolio</h3>
@@ -1032,9 +612,7 @@
 </section>
 
 
-<!-- =========================
-     CONTACTS
-========================= -->
+<!-- CONTACTS -->
 
 <section id="Contacts">
 
